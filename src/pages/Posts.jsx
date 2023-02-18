@@ -61,7 +61,9 @@ function Posts() {
             <MyModal visible={modal} setVisible={setModal}>
                 <PostForm create={createPost}/>
             </MyModal>
+
             <hr style={{margin: '15px 0'}}/>
+
             <PostFilter
                 filter={filter}
                 setFilter={setFilter}
@@ -77,14 +79,19 @@ function Posts() {
                     {value: -1, name: 'Показать все'},
                 ]}
             />
+
             {postError &&
             <h1>Произошла ошибка ${postError}</h1>
             }
+
             <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Посты про JS"/>
+
             <div ref={lastElement} style={{height: 20, background: 'red'}}/>
+            
             {isPostsLoading &&
             <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div>
             }
+            
             <Pagination
                 page={page}
                 changePage={changePage}
